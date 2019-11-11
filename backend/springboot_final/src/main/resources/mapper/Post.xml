@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Post">
+
+  	<select id="selectAllPost" resultType="com.ssafy.vo.Post">
+  		select p_no, p_title, p_body, p_date, p_email from post order by p_no
+  	
+  	</select>
+
+  	<select id="selectOnePost" parameterType="int" resultType="com.ssafy.vo.Post">
+  		select p_no, p_title, p_body, p_date, p_email from post where p_no = #{p_no}
+  	</select>
+
+
+	<insert id="insertPost" parameterType="com.ssafy.vo.Post">
+  		insert into post(p_no, p_title, p_body, p_date, p_email) values(#{p_no}, #{p_title}, #{p_body}, #{p_date},#{p_email})
+  	</insert>  	
+  	
+  	
+  	
+  	<delete id="deletePost" parameterType="int">
+  		delete from post where p_no = #{p_no}  	
+  	</delete>
+  	
+  	<update id="updatePost">
+  		update post
+  		set p_title = #{p_title}, p_body = #{p_body} p_date = #{p_date}
+  		where p_no = #{p_no}
+  	</update>
+  	
+  	
+</mapper> 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="language">
+
+	<insert id="insertLanguage" parameterType="com.ssafy.vo.Language">
+  		insert into language(l_no, l_img, l_title, l_body, l_date,l_email) values(#{l_no}, #{l_img} ,#{l_title},#{l_body}, #{l_date},#{l_email})
+  	</insert>  	
+  	
+  	
+  	<delete id="deleteLanguage" parameterType="int">
+  		delete from language where l_no = #{l_no}  	
+  	</delete>
+  	
+  	<select id="selectLanguage" parameterType="int" resultType="com.ssafy.vo.Language">
+  		select l_no, l_img, l_title, l_body, l_date, l_email
+  		from language 
+  		where l_no = #{l_no}
+  	</select>
+  	
+  	<select id="selectListLanguage" resultType="com.ssafy.vo.Language">
+  		select l_no, l_img,l_title,l_body,l_date, l_email
+  		from language
+  	
+  	</select>
+  	
+  	<update id="updateLanguage" parameterType="com.ssafy.vo.Language">
+  		update language
+  		set l_img = #{l_img}, l_title = #{l_title}, l_body = #{l_body}, l_date = #{l_date}
+  		where l_no = #{l_no}
+  	</update>
+  	
+</mapper> 

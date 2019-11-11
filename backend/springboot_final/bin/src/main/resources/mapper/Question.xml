@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="question">
+  
+  	<insert id="insertQuestion" parameterType="Question">
+  		insert into question(q_id, title, ask) values(#{q_id}, #{title}, #{ask})
+  	</insert>
+  	<update id="updateQuestion" parameterType="Question">
+  		update question
+  		set title = #{title},
+  			ask = #{ask},
+  		where q_id = #{q_id}
+  	</update>
+  	<delete id="deleteQuestion" parameterType="String">
+  		delete from question where q_id = #{q_id}  	
+  	</delete>
+  	<select id="selectQuestion" parameterType="String" resultType="Question">
+  		select q_id as q_id, title as title, ask ask
+  		from question 
+  		where q_id = #{q_id}
+  	</select>
+  	
+  	<select id="selectQuestionList" resultType="Question">
+  		select q_id as q_id, title as title, ask as ask
+  		from question
+  	</select> 
+
+
+  	
+  </mapper>
